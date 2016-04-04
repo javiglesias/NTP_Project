@@ -25,13 +25,13 @@ public class Server extends Thread{
 		System.out.println(this.getName()+" arrancada.");
 		System.out.println("Pulse una tecla para continuar.");
 		sc.nextLine();
-		time[0] = System.currentTimeMillis();
+		time[0] = System.currentTimeMillis();//INICIALIZAMOS EL TIME
 		try {
-			Thread.sleep(rng.nextInt(10-1)+1);
+			Thread.sleep(rng.nextInt(10000-1000)+1);//HACEMOS QUE DUERMA ENTRE 1 Y 10s
 		} catch (InterruptedException e) {
 			System.out.println("ERROR 1");
 		}
-		time[1] = System.currentTimeMillis();
+		time[1] = System.currentTimeMillis();//TERMINAMOS LA MEDICION DE TIEMPO
 		//LLAMAMOS AL SERVIDOR NTP PASANDOLE LOS TIEMPOS COMO PARAMETRO
 	}
 }
