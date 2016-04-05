@@ -6,7 +6,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 //Java 1.8 tomcat 8 API 2.5
-//Ruta de acceso: http://localhost:8080/Server_Practica_NTP/server/mostrar
+//Ruta de acceso: http://localhost:8080/Server_Practica_NTP/server/pedir
 @Path("/server")
 public class ServerNTP {
 	@GET
