@@ -1,5 +1,5 @@
 package Practica_NTP;
-//Java 1.8 tomcat 8
+//Java 1.8 tomcat 8 API 2.5
 //Ruta de acceso: http://localhost:8080/Practica_NTP/main/get_time
 import java.util.Random;
 import java.util.Scanner;
