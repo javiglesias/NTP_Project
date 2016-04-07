@@ -1,39 +1,45 @@
 package Server_Practica_NTP;
 
 import java.net.URI;
+//Java 1.8 tomcat 8 API 2.5
+//Ruta de acceso: http://localhost:8080/Server_Practica_NTP/main/get_time
+import java.util.Random;
 import java.util.Scanner;
-
+import javax.ws.rs.client.Client;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.client.Client;
+import javax.ws.rs.Produces;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriBuilder;
 
-//Java 1.8 tomcat 8 API 2.5
-//Ruta de acceso: http://localhost:8080/Server_Practica_NTP/server/pedir
-@Path("/server")
-public class ServerNTP {
-	static String ip1="",ip2="";
-	//static String IP = "";
-	/*@GET
-	@Path("/cargar")
-	public void cargar(String IP)
-	{
-		WebTarget target;
-		Client cliente = ClientBuilder.newClient();
-		URI url = UriBuilder.fromUri("http://"+IP+"/Practica_NTP/main").build();
-		target = cliente.target(url);
-		
-	}*/
+@Path("/main")
+public class ServerNTP extends Thread
+{
 	@GET
-	@Path("/pedir")
-	public void pedir()
+	@Path("/get_time")
+	public String get_time()
 	{
+		double []time = new double[2];
+		Random rng = new Random();
 		Scanner sc = new Scanner(System.in);
-		System.out.println("introduzca la ip de pc1 y puerto:");
-		ip1 = sc.nextLine();
-		System.out.println("introduzca la ip de pc2 y puerto:");
-		ip2 = sc.nextLine();
+		//System.out.println("Maquina arrancada.");
+		//System.out.println("Introduzca la IP y PUERTO del servidor NTP(IP:PUERTO): ");
+		//IP = sc.nextLine();
+		//System.out.println("Pulse una tecla para continuar.");
+		//sc.nextLine();
+		time[0] = System.currentTimeMillis();//INICIALIZAMOS EL TIME
+		try {
+			Thread.sleep((long)(100+rng.nextDouble()*(1000-100)));//HACEMOS QUE DUERMA ENTRE 1 Y 10s
+		} catch (InterruptedException e) {
+			System.out.println("ERROR 1");
+		}
+		time[1] = System.currentTimeMillis();//TERMINAMOS LA MEDICION DE TIEMPO
+		//System.out.println(time[1]-time[0]+" Ms");
+		return time[0]+"-"+time[1];
 	}
 }
+//Java 1.8 tomcat 8 API 2.5
+//Ruta de acceso: http://localhost:8080/Server_Practica_NTP/server/pedir
+
