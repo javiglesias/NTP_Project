@@ -1,3 +1,10 @@
+/*
+ PRACTICA 3 SISTEMAS DISTRIBUIDOS 08/04/16
+ 	JAVIER IGLESIAS SANZ 70896179J
+ 	ALBERTO VAQUERO PEDRUELO 71025723K
+
+ 	========== SERVIDOR =============
+ */
 package Server_Practica_NTP;
 
 import java.net.URI;
@@ -41,5 +48,4 @@ public class ServerNTP extends Thread
 	}
 }
 //Java 1.8 tomcat 8 API 2.5
-//Ruta de acceso: http://localhost:8080/Server_Practica_NTP/server/pedir
-
+//Ruta de acceso: http://localhost:8080/ServidorNTP/server/pedi

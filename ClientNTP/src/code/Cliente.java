@@ -1,3 +1,11 @@
+/*
+ PRACTICA 3 SISTEMAS DISTRIBUIDOS 08/04/16
+ 	JAVIER IGLESIAS SANZ 70896179J
+ 	ALBERTO VAQUERO PEDRUELO 71025723K
+
+ 	========== CLIENTE =============
+ */
+
 package code;
 
 import java.net.URI;
@@ -22,7 +30,12 @@ public class Cliente extends Thread
 		System.out.println("Cuantas maquinas tienes?: ");
 		n = sc.nextInt();
 		ip= new String[n];
-		ip[0] = "localhost:8080";
+		
+		sc = new Scanner(System.in);
+		for (int i = 0; i < ip.length; i++) {
+			System.out.println("IP:puerto de maquina"+i+" : ");
+			ip[i]= sc.nextLine();
+		}
 		NTP();
 	}
 	public static double determinar(double t0,double t1,double t2,double t3,String method)
@@ -46,7 +59,6 @@ public class Cliente extends Thread
 		String times;
 		double offset, delay;
 		//Algoritmo NTP
-		System.out.println("soy tonto, soy Manu");
 		for (int i = 0;i<ip.length; i++ ) 
 		{
 			WebTarget target;
